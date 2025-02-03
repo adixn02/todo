@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Task from './components/task';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTask } from './utils/slice/todoslice';
+import { addTask, clearTask } from './utils/slice/todoslice';
 
 
 function App() {
@@ -20,6 +20,10 @@ function App() {
     setInputv("")
   }
 
+  const handleClearTask =( )=>{
+    dispatch(clearTask())
+  }
+
   return (
   
     <div className="App">
@@ -34,6 +38,11 @@ function App() {
             
           }}>add task</button>
         </div>
+      </div>
+      <div>
+        <button className=' btn btn-danger' onClick={()=>{
+handleClearTask()
+        }}>clear All Task</button>
       </div>
       <Task todoItems={todoItems}/>
 
